@@ -1,0 +1,14 @@
+{
+  "name": "bodas-de-plata-invitation",
+  "version": "1.0.0",
+  "description": "Invitación elegante para celebración de 25 años de matrimonio",
+  "main": "index.html",
+  "scripts": {
+    "start": "open index.html",
+    "dev": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": ["bodas-de-plata", "invitación", "25-años", "matrimonio"],
+  "author": "Tu nombre",
+  "license": "MIT"
+}
