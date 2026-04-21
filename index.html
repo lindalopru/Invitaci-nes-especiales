@@ -3,77 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bodas de Plata - Lenin López & Diana Rubiano</title>
+    <title>Bodas de Plata - Lenin & Diana</title>
+    <!-- Modern Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Premium Floral Design */
+        :root {
+            --silver-light: #F5F7F9;
+            --silver: #D1D8E0;
+            --silver-dark: #A3B1C6;
+            --gold-light: #F4F6F7; /* Re-mapped to silver light */
+            --gold: #9CA8B5; /* Re-mapped to Platinum Silver */
+            --gold-dark: #7D8A99; /* Re-mapped to Deep Slate */
+            --dark-bg: #2C3E50;
+            --text-main: #3F4C5A;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(rgba(240, 244, 248, 0.65), rgba(240, 244, 248, 0.85)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat fixed;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .invitation-container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Golden Frame Decoration */
+        .invitation-container::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.4); /* Gold */
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(white 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 40px 30px;
+            background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 100%);
+        }
+
+        .badge-25 {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--silver) 0%, #FFFFFF 50%, var(--silver) 100%);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid var(--white);
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            color: var(--dark-bg);
+            margin-bottom: 5px;
+            letter-spacing: 4px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .title .flourish {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            color: var(--silver-dark);
+            vertical-align: middle;
+            margin: 0 -4px;
+            text-shadow: none;
+            text-transform: none;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--dark-bg);
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .invitation-text {
+            font-size: 0.95rem;
+            color: var(--silver-dark);
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .names-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            background: linear-gradient(to right, var(--gold-dark), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Image Section */
+        .photo-section {
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            display: inline-block;
+            padding: 8px;
+            /* Smooth Premium Gold Gradient */
+            background: linear-gradient(145deg, #FFDF73 0%, #D4AF37 35%, #997A15 65%, #FBE58F 100%);
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25), inset 0 0 15px rgba(0,0,0,0.2);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Inner White Passepartout to cleanly separate photo and gold */
+        .photo-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .photo-wrapper:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .photo {
+            width: 330px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            border: 4px solid #fff;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -15px; /* Pushed out safely */
+            right: -10px;  /* Pushed out safely */
+            background: #FFFFFF; /* High contrast white base */
+            color: #D4AF37; /* Metallic Gold Text */
+            width: 80px; /* Bigger to be prominent */
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid #D4AF37; /* Gold border */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            transform: rotate(10deg);
+            z-index: 50; /* Guarantees it stays strictly OVER the frame */
+        }
+
+        .badge-year {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .badge-text {
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Details Section */
+        .details-container {
+            padding: 40px 30px;
+            background: #FFFFFF;
+            position: relative;
+            z-index: 20;
+        }
+
+        .event-card {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            border-left: 4px solid var(--silver);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: left;
+        }
+
+        .event-card.gold-accent {
+            border-left: 4px solid var(--gold);
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-left-width: 6px;
+        }
+
+        .icon-box {
+            background: var(--silver-light);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            color: var(--dark-bg);
+        }
+
+        .gold-accent .icon-box {
+            background: #FFF9E6;
+            color: var(--gold-dark);
+        }
+
+        .event-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .event-time {
+            font-weight: 600;
+            color: var(--gold-dark);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            display: inline-block;
+            background: #fdf5df;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .event-location {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Footer & RSVP */
+        .footer {
+            text-align: center;
+            padding: 0 30px 40px;
+            background: #FFFFFF;
+            position: relative;
+            z-index: 20;
+        }
+
+        .rsvp-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            width: 100%;
+        }
+
+        .rsvp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .closing-quote {
+            margin-top: 30px;
+            font-family: 'Cinzel', serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--silver-dark);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* RSVP Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.98);
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            border: 2px solid var(--gold);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--silver-dark);
+            cursor: pointer;
+            border: none;
+            background: none;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: var(--dark-bg);
+        }
+
+        .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--dark-bg);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--silver);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+            background: #fafafa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: #fff;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 12px 10px;
+            border-radius: 30px;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: var(--silver);
+            box-shadow: none;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 10px 0;
+            color: #27ae60;
+            font-size: 0.95rem;
+        }
+
+        .floral-corner {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: url('https://images.unsplash.com/photo-1549469145-2b47f7dd2bdc?w=600&q=80') no-repeat center;
+            background-size: cover;
+            mix-blend-mode: multiply;
+            filter: grayscale(100%) contrast(1.1) brightness(1.2) opacity(0.35);
+            pointer-events: none;
+            z-index: 5;
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 65%);
+        }
+
+        .floral-top-left {
+            top: -90px;
+            left: -90px;
+            transform: rotate(-30deg);
+        }
+
+        .floral-bottom-right {
+            bottom: -90px;
+            right: -90px;
+            transform: rotate(150deg);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="invitation-card">
-            <!-- Header Section -->
-            <header class="header">
-                <h1>Osvaldo & Any</h1>
-                <h2>Nuestra Boda</h2>
-            </header>
 
-            <!-- Main Photo Section -->
-            <section class="main-photo">
-                <img src="src/assets/images/wedding-photo.png" alt="Osvaldo y Any" class="wedding-photo">
-            </section>
+    <div class="invitation-container animate__animated animate__fadeIn">
+        <div class="floral-corner floral-top-left"></div>
+        <div class="floral-corner floral-bottom-right"></div>
+        <div class="sparkles"></div>
+        
+        <header class="header">
+            <div class="badge-25 animate__animated animate__zoomIn animate__delay-1s" style="letter-spacing: 4px;">2001 • 2026</div>
+            <h1 class="title animate__animated animate__fadeInDown"><span class="flourish">B</span>ODAS <span class="flourish">D</span>E <span class="flourish">P</span>LATA</h1>
+            <div class="subtitle animate__animated animate__fadeInDown">25 AÑOS DE AMOR JUNTOS</div>
+            <p class="invitation-text animate__animated animate__fadeInUp animate__delay-1s" style="font-size: 1.05rem; line-height: 1.8;">Con inmenso placer y amor te invitamos a la celebración de nuestro Vigésimo Quinto Aniversario de casados.</p>
+            
+            <div class="names-container animate__animated animate__fadeIn animate__delay-1s">
+                <div class="names">Lenin López</div>
+                <div class="names" style="font-size: 2rem; color: #8F9AA3; margin: -10px 0;">&</div>
+                <div class="names">Diana Rubiano</div>
+            </div>
+        </header>
 
-            <!-- Nuestros Padres Section -->
-            <section class="parents-section">
-                <h3>Nuestros Padres</h3>
-                <div class="parents">
-                    <p><strong>De la Novia:</strong> Edith Guzmán Tinoco & Humberto León González</p>
-                    <p><strong>Del Novio:</strong> Catalina Núñez Martínez & Alfredo Maldonado Reyes</p>
+        <section class="photo-section animate__animated animate__zoomIn">
+            <div class="photo-wrapper">
+                <!-- Video Truncated to 3 seconds via JS -->
+                <video id="weddingVideo" src="src/assets/images/foto_movimiento.mp4" autoplay muted playsinline class="photo" style="object-fit: cover; filter: brightness(1.05) contrast(1.02);"></video>
+                <script>
+                    const vid = document.getElementById('weddingVideo');
+                    vid.addEventListener('timeupdate', function() {
+                        if (vid.currentTime >= 3.0) {
+                            vid.currentTime = 0;
+                            vid.play();
+                        }
+                    });
+                </script>
+                <div class="floating-badge">
+                    <span class="badge-year">25</span>
+                    <span class="badge-text">Años</span>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Itinerario de Boda Section -->
-            <section class="itinerary-section">
-                <h3>Itinerario de Boda</h3>
-                <ul class="itinerary">
-                    <li><strong>5:00 PM:</strong> Recepción</li>
-                    <li><strong>5:30 PM:</strong> Ceremonia Civil</li>
-                    <li><strong>7:00 PM:</strong> Cena</li>
-                    <li><strong>9:00 PM:</strong> Baile</li>
-                    <li><strong>1:00 AM:</strong> Despedida</li>
-                </ul>
-            </section>
+        <section class="details-container">
+            
+            <!-- Misa -->
+            <div class="event-card animate__animated animate__fadeInLeft">
+                <div class="icon-box" style="box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); border: 1px solid rgba(192,192,192,0.3);">
+                    <!-- Elegant Church Icon -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L5 8v14h14V8l-7-6z"/>
+                        <path d="M12 2v20"/>
+                        <path d="M9 10h6"/>
+                        <path d="M10 22v-5a2 2 0 0 1 4 0v5"/>
+                        <circle cx="12" cy="14" r="1.5"/>
+                    </svg>
+                </div>
+                <div class="event-info">
+                    <h3>Misa de Acción de Gracias</h3>
+                    <div class="event-time">9 de Mayo | 6:00 PM</div>
+                    <p class="event-location">
+                        <strong>Parroquia San Vicente de Paúl</strong><br>
+                        Barrio Quebraditas
+                    </p>
+                </div>
+            </div>
 
-            <!-- Recepción Section -->
-            <section class="reception-section">
-                <h3>Recepción</h3>
-                <p>5:00 PM</p>
-                <p>Edén Benavento</p>
-                <button class="location-button">Ver Ubicación</button>
-            </section>
+            <!-- Celebración -->
+            <div class="event-card gold-accent animate__animated animate__fadeInRight animate__delay-1s">
+                <div class="icon-box" style="box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); border: 1px solid rgba(212,175,55,0.3);">
+                    <!-- Toasting Elegant Glasses -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8 22h8"/>
+                        <path d="M12 15v7"/>
+                        <path d="M6.5 3L8 10.5a4.5 4.5 0 0 0 9 0L18.5 3"/>
+                        <path d="M12 10l3.5-7"/>
+                        <path d="M7 6h11"/>
+                    </svg>
+                </div>
+                <div class="event-info">
+                    <h3>Celebración Post Misa</h3>
+                    <div class="event-time">9 de Mayo | 9:00 PM</div>
+                    <p class="event-location">
+                        <strong>Recepción</strong><br>
+                        Calle 28 N. 16A- 19<br>
+                        Barrio Los Andes
+                    </p>
+                </div>
+            </div>
 
-            <!-- Dress Code Section -->
-            <section class="dress-code-section">
-                <h3>Dress Code</h3>
-                <p>Semi Formal</p>
-                <p>Por favor evita el color blanco, ese color queda reservado para la novia.</p>
-            </section>
+        </section>
 
-            <!-- Confirmar Asistencia Section -->
-            <section class="rsvp-section">
-                <h3>Confirmar Asistencia</h3>
-                <p>Nuestra boda será aún más especial si estás con nosotros. Confirma tu asistencia antes del 01 de diciembre.</p>
-                <button class="rsvp-button">Confirmar Asistencia</button>
-            </section>
+        <footer class="footer">
+            <button class="rsvp-btn animate__animated animate__pulse animate__infinite animate__slower" onclick="openModal()">
+                Confirmar Asistencia
+            </button>
+            <p class="closing-quote animate__animated animate__fadeIn animate__delay-2s">"El amor es nuestra mayor bendición."</p>
+        </footer>
 
-            <!-- Footer Section -->
-            <footer class="footer">
-                <p>Gracias por acompañarnos en este día tan especial.</p>
-            </footer>
+    </div>
+
+    <!-- RSVP Modal -->
+    <div class="modal-overlay" id="rsvpModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">×</button>
+            <h2 class="modal-title">Confirmación</h2>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" class="form-control" name="Nombre" placeholder="Ej. Carlos Martínez" required>
+                </div>
+                <div class="form-group">
+                    <label for="companions">Cantidad de Personas (incluyéndote)</label>
+                    <select id="companions" class="form-control" name="Personas" required>
+                        <option value="1">1 Persona</option>
+                        <option value="2">2 Personas</option>
+                        <option value="3">3 Personas</option>
+                        <option value="4">4 Personas</option>
+                        <option value="5">5 Personas</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">Enviar Confirmación</button>
+            </form>
+            <div class="success-message" id="successMsg">
+                <strong>¡Gracias!</strong><br>Tu confirmación ha sido guardada.
+            </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="src/js/script.js"></script>
+    <script>
+        // Aquí debes pegar tu URL web de Google Apps Script 
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwT9z8M9f_IkrHZRNrp-1XHpWd55FQYo9VH41kiMInUza09dbo58Bj34CNa_ZNQfwM/exec';
+
+        function openModal() {
+            document.getElementById('rsvpModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('rsvpModal').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('rsvpForm').style.display = 'block';
+                document.getElementById('successMsg').style.display = 'none';
+                document.getElementById('rsvpForm').reset();
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').innerText = 'Enviar Confirmación';
+            }, 300);
+        }
+
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (SCRIPT_URL === 'AGREGA_TU_URL_AQUI') {
+                alert('Aún falta conectar la URL de Google Sheets.');
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = 'Enviando...';
+
+            const formData = new FormData(this);
+            formData.append('Fecha', new Date().toLocaleString());
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors'
+            })
+            .then(() => {
+                document.getElementById('rsvpForm').style.display = 'none';
+                document.getElementById('successMsg').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Hubo un error al enviar. Por favor intenta de nuevo.');
+                btn.disabled = false;
+                btn.innerText = 'Enviar Confirmación';
+            });
+        });
+    </script>
 </body>
 </html>
