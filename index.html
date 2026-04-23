@@ -133,9 +133,32 @@
         /* ─── Top Gradient Zone ─── */
         .hero-zone {
             background: linear-gradient(180deg, #D5DAE0 0%, #E2E6EB 40%, var(--white) 100%);
-            padding: 50px 30px 30px;
+            padding: 40px 30px 30px;
             text-align: center;
             position: relative;
+        }
+
+        .main-hero-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.6rem;
+            color: var(--charcoal);
+            line-height: 1.1;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--silver-dark);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 10;
         }
 
         /* Side scroll decorations in the gradient zone */
@@ -691,6 +714,16 @@
                 padding: 35px 15px 20px;
             }
 
+            .main-hero-title {
+                font-size: 2.8rem;
+            }
+
+            .main-hero-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+
             .video-circle {
                 width: 220px;
                 height: 220px;
@@ -854,6 +887,9 @@
         <!-- ═══ Hero Zone: Gradient + Photo ═══ -->
         <div class="hero-zone">
 
+            <h1 class="main-hero-title reveal">Bodas de Plata</h1>
+            <div class="main-hero-subtitle reveal reveal-d1">25 años de amor juntos</div>
+
             <!-- Side Scroll Decorations -->
             <div class="side-scroll side-scroll-left" aria-hidden="true">
                 <svg width="22" height="180" viewBox="0 0 22 180" fill="none">
@@ -893,8 +929,6 @@
 
         <!-- ═══ Content: Invite Text + Names + Date ═══ -->
         <div class="content-zone">
-            <div class="anniversary-subtitle reveal">25 años de amor juntos</div>
-
             <p class="invitation-message reveal reveal-d1">
                 Con inmenso placer y amor te invitamos<br>
                 a la celebración de nuestro Vigésimo Quinto<br>
